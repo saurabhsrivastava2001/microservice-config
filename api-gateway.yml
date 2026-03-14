@@ -1,0 +1,25 @@
+server:
+  port: 7914
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+
+        - id: passenger-service
+          uri: lb://PASSENGER-SERVICE
+          predicates:
+            - Path=/passengerdetails/**
+
+        - id: carrentals-service
+          uri: lb://CARRENTALS-SERVICE
+          predicates:
+            - Path=/rentalcardetails/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7910/eureka/
