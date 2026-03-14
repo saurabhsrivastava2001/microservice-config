@@ -1,0 +1,16 @@
+server:
+  port: 7911
+
+spring:
+  application:
+    name: passenger-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7910/eureka/
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
